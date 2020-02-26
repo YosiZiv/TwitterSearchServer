@@ -6,10 +6,7 @@ const axios = Axios.create({
     authorization: token
   }
 });
-console.log(token);
-
 exports.api = async ({ url, method, payload = null }) => {
-  console.log(url, method, payload);
   let response;
   try {
     if (method === "GET") {
@@ -20,6 +17,6 @@ exports.api = async ({ url, method, payload = null }) => {
       return response;
     }
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
