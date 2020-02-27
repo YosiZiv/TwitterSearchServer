@@ -1,10 +1,10 @@
 const { api } = require("../../httpConfig");
 exports.getTweetsByHashtag = async (req, res, next) => {
   const {
-    hashtag = null,
-    startDate = null,
-    endDate = null,
-    language = null,
+    hashtag = "",
+    startDate = "",
+    endDate = "",
+    language = "",
     reqData = null
   } = req.body;
   console.log(hashtag, language);
