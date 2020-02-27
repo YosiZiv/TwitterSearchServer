@@ -7,6 +7,8 @@ exports.getTweetsByHashtag = async (req, res, next) => {
     language = null,
     reqData = null
   } = req.body;
+  console.log(hashtag, language);
+
   try {
     let params = "";
     const hashtagUrl = `%23${hashtag.value}`;
@@ -25,6 +27,7 @@ exports.getTweetsByHashtag = async (req, res, next) => {
       url: `https://api.twitter.com/1.1/search/tweets.json?q=` + params,
       method: "GET"
     };
+    console.log(twitterReq, language);
     const response = await api(twitterReq);
     const tweets = response.data.statuses;
     const filteredTweets = []; // INIT EMPTY ARRAY FOR FILTER KEYS TWEETS OBJECTS
@@ -49,6 +52,8 @@ exports.getTweetsByHashtag = async (req, res, next) => {
     }
     return res.status(200).json({ tweets, filteredTweets });
   } catch (err) {
+    console.log(err);
+
     return res.status(400).json({ errors: "somting went wrong :/", err });
   }
 };

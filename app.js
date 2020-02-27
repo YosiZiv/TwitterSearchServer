@@ -21,7 +21,7 @@ app.get("*", (req, res) => {
   }
   console.log(
     "SUPER IMPORTENT ",
-    path.join(__dirname, "..", "server", "build", "index.html")
+    path.join(__dirname, "public", "build", "index.html")
   );
 
   res.sendFile(path.join(__dirname, "public", "build", "index.html"));
