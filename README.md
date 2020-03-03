@@ -12,5 +12,6 @@ PROJECT START
 
 open http://localhost:4000 to visit the web app host on the build folder.
 
-OPEN POSTMAN and run POST http://localhost:4000/api/tweeter/hashtag open the body tab and nre key hashtag and value of any you like.
-if result if ok the server is up and runing ENJOY
+OPEN POSTMAN and run POST http://localhost:4000/api/tweeter/hashtag open the body tab and enter key: hashtag and value: test,
+if result if ok the server is up and runing 
+ENJOY
