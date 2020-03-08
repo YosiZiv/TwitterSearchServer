@@ -29,8 +29,6 @@ exports.getTweetsByHashtag = async (req, res, next) => {
     language = "",
     filters = null
   } = req.query;
-  console.log("FUNCTION HIT", hashtag, startDate, endDate, language);
-
   try {
     let params = "";
     const hashtagUrl = `%23${hashtag}`;
@@ -45,22 +43,16 @@ exports.getTweetsByHashtag = async (req, res, next) => {
         language ? languageUrl : ""
       );
     }
-    console.log("FUNCTION HIT", params);
     const twitterReq = {
       url: `https://api.twitter.com/1.1/search/tweets.json?q=` + params,
       method: "GET"
     };
-    console.log(twitterReq.url);
-
     const response = await api(twitterReq);
     const { statuses } = response.data; // twitter api give twitter response in statues key
     let tweets = statuses;
     if (statuses.length && filters && typeof filters === "object") {
-      console.log("if check hit");
       tweets = filterArrayOfObjects(statuses, filters);
     }
-    console.log(tweets);
-
     return res.status(200).json({ tweets });
   } catch (err) {
     return res.status(400).json({ errors: "somting went wrong :/", err });
