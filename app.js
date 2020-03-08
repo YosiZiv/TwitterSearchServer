@@ -19,11 +19,6 @@ app.get("*", (req, res) => {
   if (req.path === "/api") {
     next();
   }
-  console.log(
-    "SUPER IMPORTENT ",
-    path.join(__dirname, "public", "build", "index.html")
-  );
-
   res.sendFile(path.join(__dirname, "public", "build", "index.html"));
 });
 

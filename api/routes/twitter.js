@@ -5,6 +5,6 @@ const router = express.Router();
 
 const { getTweetsByHashtag } = require("../handlers/twitter");
 
-router.post("/tweets", getTweetsByHashtag);
+router.get("/hashtag/", getTweetsByHashtag);
 // router.post("/getembed", getTwitterEmbed);
 module.exports = router;
